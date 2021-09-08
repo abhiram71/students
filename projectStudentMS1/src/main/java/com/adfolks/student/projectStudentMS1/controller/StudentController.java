@@ -20,6 +20,7 @@ public class StudentController {
     @PostMapping("/students")
     public Student saveStudent(@RequestBody Student student) {
         template.convertAndSend(MQconfig.EXCHANGE, MQconfig.ROUTING_KEY_SAVE, student);
+
         return student;
     }
 
